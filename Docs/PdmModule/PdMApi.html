@@ -54,14 +54,15 @@ class PdmModule():
         self.detector_class=detector_class
         self.parameters=parameters
         self.parameters[&#34;resetcodes&#34;]=[(&#39;reset&#39;,id)]
-    &#39;&#39;&#39;
-    This method accepts a data point with timestamp from a source and returns a prediction. For not seen sources create a new instant of detector.
-    
-    timestamp: the timestamp of the data
-    data: an numpy array contain features (real numbers)
-    id: the source that these data related to
-    &#39;&#39;&#39;
+
     def collect_data(self,timestamp,data,id):
+        &#39;&#39;&#39;
+            This method accepts a data point with timestamp from a source and returns a prediction. For not seen sources create a new instant of detector.
+
+            timestamp: the timestamp of the data
+            data: an numpy array contain features (real numbers)
+            id: the source that these data related to
+            &#39;&#39;&#39;
         if id in self.sources.keys():
             prediction=self.sources[id].get_Datapoint(timestamp,data, id)[0]
         else:
@@ -77,14 +78,15 @@ class PdmModule():
                                                  ensemble_details=&#34;&lt;&gt;&#34;)
         return prediction
 
-    &#39;&#39;&#39;
-        This method trigger rest on the specific source (id) passed
-        
-        timestamp: the timestamp of the event
-        desc: description of the event
-        id: the source in which reset is triggered.
-        &#39;&#39;&#39;
+
     def collect_event(self,timestamp,desc,id):
+        &#39;&#39;&#39;
+               This method trigger rest on the specific source (id) passed
+
+               timestamp: the timestamp of the event
+               desc: description of the event
+               id: the source in which reset is triggered.
+               &#39;&#39;&#39;
         ev =Eventpoint(code=desc,source=id,timestamp=timestamp)
         if id in self.sources.keys():
             self.sources[id].get_event(ev)
@@ -116,15 +118,15 @@ class PdmModuleStatic():
         self.parameters = parameters
         self.parameters[&#34;resetcodes&#34;] = [(&#39;reset&#39;, id)]
 
-    &#39;&#39;&#39;
-        This method simulate the stream using the raw and event data
 
-        data: a DataFrame of the feature data (each row is a data point) where the index contain timestamps
-        events: a DataFrame with events data, it needs to have one column &#39;dt&#39; with timestamps of events and one &#39;desc&#39; with a relative description
-        id: the source of simulated data.
-    &#39;&#39;&#39;
     def predict(self,data,events,id):
+        &#39;&#39;&#39;
+               This method simulate the stream using the raw and event data
 
+               data: a DataFrame of the feature data (each row is a data point) where the index contain timestamps
+               events: a DataFrame with events data, it needs to have one column &#39;dt&#39; with timestamps of events and one &#39;desc&#39; with a relative description
+               id: the source of simulated data.
+           &#39;&#39;&#39;
         if &#39;dt&#39; not in events.columns:
             assert False, &#34; A column named dt is expected in event dataframe&#34;
 
@@ -213,14 +215,15 @@ and the method collect_event to pass an event to trigger reset of the technique 
         self.detector_class=detector_class
         self.parameters=parameters
         self.parameters[&#34;resetcodes&#34;]=[(&#39;reset&#39;,id)]
-    &#39;&#39;&#39;
-    This method accepts a data point with timestamp from a source and returns a prediction. For not seen sources create a new instant of detector.
-    
-    timestamp: the timestamp of the data
-    data: an numpy array contain features (real numbers)
-    id: the source that these data related to
-    &#39;&#39;&#39;
+
     def collect_data(self,timestamp,data,id):
+        &#39;&#39;&#39;
+            This method accepts a data point with timestamp from a source and returns a prediction. For not seen sources create a new instant of detector.
+
+            timestamp: the timestamp of the data
+            data: an numpy array contain features (real numbers)
+            id: the source that these data related to
+            &#39;&#39;&#39;
         if id in self.sources.keys():
             prediction=self.sources[id].get_Datapoint(timestamp,data, id)[0]
         else:
@@ -236,14 +239,15 @@ and the method collect_event to pass an event to trigger reset of the technique 
                                                  ensemble_details=&#34;&lt;&gt;&#34;)
         return prediction
 
-    &#39;&#39;&#39;
-        This method trigger rest on the specific source (id) passed
-        
-        timestamp: the timestamp of the event
-        desc: description of the event
-        id: the source in which reset is triggered.
-        &#39;&#39;&#39;
+
     def collect_event(self,timestamp,desc,id):
+        &#39;&#39;&#39;
+               This method trigger rest on the specific source (id) passed
+
+               timestamp: the timestamp of the event
+               desc: description of the event
+               id: the source in which reset is triggered.
+               &#39;&#39;&#39;
         ev =Eventpoint(code=desc,source=id,timestamp=timestamp)
         if id in self.sources.keys():
             self.sources[id].get_event(ev)
@@ -257,12 +261,22 @@ and the method collect_event to pass an event to trigger reset of the technique 
 <span>def <span class="ident">collect_data</span></span>(<span>self, timestamp, data, id)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>This method accepts a data point with timestamp from a source and returns a prediction. For not seen sources create a new instant of detector.</p>
+<p>timestamp: the timestamp of the data
+data: an numpy array contain features (real numbers)
+id: the source that these data related to</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def collect_data(self,timestamp,data,id):
+    &#39;&#39;&#39;
+        This method accepts a data point with timestamp from a source and returns a prediction. For not seen sources create a new instant of detector.
+
+        timestamp: the timestamp of the data
+        data: an numpy array contain features (real numbers)
+        id: the source that these data related to
+        &#39;&#39;&#39;
     if id in self.sources.keys():
         prediction=self.sources[id].get_Datapoint(timestamp,data, id)[0]
     else:
@@ -283,12 +297,22 @@ and the method collect_event to pass an event to trigger reset of the technique 
 <span>def <span class="ident">collect_event</span></span>(<span>self, timestamp, desc, id)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>This method trigger rest on the specific source (id) passed</p>
+<p>timestamp: the timestamp of the event
+desc: description of the event
+id: the source in which reset is triggered.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def collect_event(self,timestamp,desc,id):
+    &#39;&#39;&#39;
+           This method trigger rest on the specific source (id) passed
+
+           timestamp: the timestamp of the event
+           desc: description of the event
+           id: the source in which reset is triggered.
+           &#39;&#39;&#39;
     ev =Eventpoint(code=desc,source=id,timestamp=timestamp)
     if id in self.sources.keys():
         self.sources[id].get_event(ev)
@@ -337,15 +361,15 @@ So given all data (raw and event timestamps that triger rest to the tecnique, it
         self.parameters = parameters
         self.parameters[&#34;resetcodes&#34;] = [(&#39;reset&#39;, id)]
 
-    &#39;&#39;&#39;
-        This method simulate the stream using the raw and event data
 
-        data: a DataFrame of the feature data (each row is a data point) where the index contain timestamps
-        events: a DataFrame with events data, it needs to have one column &#39;dt&#39; with timestamps of events and one &#39;desc&#39; with a relative description
-        id: the source of simulated data.
-    &#39;&#39;&#39;
     def predict(self,data,events,id):
+        &#39;&#39;&#39;
+               This method simulate the stream using the raw and event data
 
+               data: a DataFrame of the feature data (each row is a data point) where the index contain timestamps
+               events: a DataFrame with events data, it needs to have one column &#39;dt&#39; with timestamps of events and one &#39;desc&#39; with a relative description
+               id: the source of simulated data.
+           &#39;&#39;&#39;
         if &#39;dt&#39; not in events.columns:
             assert False, &#34; A column named dt is expected in event dataframe&#34;
 
@@ -392,13 +416,22 @@ So given all data (raw and event timestamps that triger rest to the tecnique, it
 <span>def <span class="ident">predict</span></span>(<span>self, data, events, id)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>This method simulate the stream using the raw and event data</p>
+<p>data: a DataFrame of the feature data (each row is a data point) where the index contain timestamps
+events: a DataFrame with events data, it needs to have one column 'dt' with timestamps of events and one 'desc' with a relative description
+id: the source of simulated data.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def predict(self,data,events,id):
+    &#39;&#39;&#39;
+           This method simulate the stream using the raw and event data
 
+           data: a DataFrame of the feature data (each row is a data point) where the index contain timestamps
+           events: a DataFrame with events data, it needs to have one column &#39;dt&#39; with timestamps of events and one &#39;desc&#39; with a relative description
+           id: the source of simulated data.
+       &#39;&#39;&#39;
     if &#39;dt&#39; not in events.columns:
         assert False, &#34; A column named dt is expected in event dataframe&#34;
 
