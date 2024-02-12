@@ -1,5 +1,5 @@
-from thresholding import thresholding
-from utils.structure import Datapoint,Eventpoint,PredictionPoint
+from PdmModule.thresholding import thresholding
+from PdmModule.utils.structure import Datapoint,Eventpoint,PredictionPoint
 import pandas as pd
 from pandas import DataFrame
 from sklearn.neighbors import KDTree

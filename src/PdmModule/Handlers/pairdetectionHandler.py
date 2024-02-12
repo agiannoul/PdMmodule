@@ -1,7 +1,7 @@
 import numpy as np
 from numpy import ndarray
-from utils.structure import PredictionPoint,Datapoint,Eventpoint
-from Models import pairdetection
+from PdmModule.utils.structure import PredictionPoint,Datapoint,Eventpoint
+from PdmModule.Models import pairdetection
 import pandas as pd
 
 

@@ -1,4 +1,4 @@
-from PdMApi import PdmModule,PdmModuleStatic
+from PdmModule.PdMApi import PdmModule,PdmModuleStatic
 import pandas as pd
 import numpy as np
 

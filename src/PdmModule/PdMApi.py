@@ -1,5 +1,5 @@
-from Handlers.pairdetectionHandler import PairDectionHandler
-from utils.structure import Eventpoint,PredictionPoint
+from PdmModule.Handlers.pairdetectionHandler import PairDectionHandler
+from PdmModule.utils.structure import Eventpoint,PredictionPoint
 
 
 class PdmModule():

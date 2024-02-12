@@ -1,6 +1,6 @@
-from PdMApi import PdmModule,PdmModuleStatic
+from PdmModule.PdMApi import PdmModule,PdmModuleStatic
 import pandas as pd
-from Handlers.xgboostPairHandler import XgboostPairHandler
+from PdmModule.Handlers.xgboostPairHandler import XgboostPairHandler
 def test_id(id):
     streamModule = PdmModule(detector_class=XgboostPairHandler,parameters={
         "thresholdtype" : "selftunne",

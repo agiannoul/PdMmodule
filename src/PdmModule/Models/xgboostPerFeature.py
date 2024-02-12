@@ -3,11 +3,11 @@ import pandas as pd
 import xgboost as xgb
 from sklearn.model_selection import train_test_split
 
-from thresholding import thresholding
+from PdmModule.thresholding import thresholding
 
 from operator import itemgetter
 
-from utils.structure import Datapoint, PredictionPoint
+from PdmModule.utils.structure import Datapoint, PredictionPoint
 
 
 class PairXgboost():
