@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>PdmModule.Models.xgboostPerFeature API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>PdmModule.Models.xgboostPerFeature</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+import pandas as pd
+import xgboost as xgb
+from sklearn.model_selection import train_test_split
+
+from PdmModule.thresholding import thresholding
+
+from operator import itemgetter
+
+from PdmModule.utils.structure import Datapoint, PredictionPoint
+
+
+class PairXgboost():
+    def __init__(self,thresholdtype,thresholdfactor,actualProfileSize=30,constThresholdfilter=float(&#39;-inf&#39;),alarmsThreshold=0):
+        self.score_buffer=[]
+        self.thresholdfactor = thresholdfactor
+        self.thresholdtype = thresholdtype
+        self.reference=None
+        self.ProfileSize=actualProfileSize
+        self.constThresholdfilter=constThresholdfilter
+        self.initilized=False
+        self.pbcore=None
+        self.alarmsThreshold=alarmsThreshold
+    # Data point should contain (reference,actual data,source) and the function return PredictionPoint
+    def get_data(self,point : Datapoint):
+        anomaly_score = 0
+        if self.initilized:
+            pair_anomaly_scores = self.pbcore.predict(point.current)
+        else:
+            self.initilize(point)
+            pair_anomaly_scores = self.pbcore.predict(point.current)
+
+        alarm = False
+        pairthresholds = self.pbcore.threshold
+        thdeatails = self.pbcore.thdetails
+
+        score_description = &#34;&#34;
+        description_features = &#34;&lt;&#34;
+        ths = &#34;&#34;
+        counter = 0
+        producealarm = 0
+        for th, score in zip(pairthresholds, pair_anomaly_scores):
+            if score &gt; th and score &gt; self.constThresholdfilter:
+                producealarm += 1
+                description_features += f&#34;{counter}-&#34;
+            # if len(thdeatails)&gt;0:
+            #    description+=f&#34;{thdeatails[counter][0]},{thdeatails[counter][1]},{score},&#34;
+            # else:
+            score_description += f&#34;,{score}&#34;
+            ths += f&#34;,{th}&#34;
+            counter += 1
+        if description_features == &#34;&lt;&#34;:
+            description_features = &#34;&lt;&gt;&#34;
+        else:
+            description_features = description_features[:-1]
+            description_features += &#34;&gt;&#34;
+        alarm = producealarm &gt; self.alarmsThreshold
+        if alarm:
+            anomaly_score = 1
+        else:
+            anomaly_score = 0
+        description = score_description + ths
+        prediction = PredictionPoint(anomaly_score, 0.5, alarm, self.thresholdtype,
+                                     point.timestamp, point.source, notes=description,
+                                     ensemble_details=description_features)
+        return prediction
+
+    def initilize(self,point : Datapoint):
+        self.reference=point.reference
+        self.createpbCore()
+        self.initilized=True
+
+
+    def createpbCore(self):
+        if self.thresholdtype==&#34;selftunne&#34;:
+            profile=self.reference[:self.ProfileSize]
+            dataForNormal=self.reference[self.ProfileSize:]
+            self.pbcore = XgboostFeatureCore(profile, thresholdtype=self.thresholdtype,dataforThreshold=dataForNormal,thresholdfactor=self.thresholdfactor)
+        else:
+            profile=self.reference
+            self.pbcore = XgboostFeatureCore(profile, thresholdtype=self.thresholdtype,thresholdfactor=self.thresholdfactor)
+
+    def reset(self):
+        self.score_buffer = []
+        self.reference = None
+        self.initilized = False
+        self.pbcore = None
+
+
+
+class XgboostFeatureCore():
+
+    def __init__(self, profile, thresholdtype=&#34;selftunne&#34;, dataforThreshold=None, thresholdfactor=5):
+        self.profile = profile
+        self.thresholdfactor = thresholdfactor
+        self.thresholdtype = thresholdtype
+        self.dataforThreshold = dataforThreshold
+        self.models=[]
+        self.fit(profile)
+        self.thdetails=[]
+        if thresholdtype == &#34;const&#34;:
+            self.threshold = thresholdfactor
+        elif thresholdtype == &#34;selftunne&#34; and dataforThreshold is not None:
+            self.threshold,self.thdetails= self.calculateThresholdSelfTune(dataforThreshold)
+
+    def calculateThresholdSelfTune(self, dataforThreshold):
+        anomalyscoresinNormal = [self.predict(point) for point in dataforThreshold]
+
+        anomalyscoresinNormal = np.array(anomalyscoresinNormal)
+        finalthresholds = []
+        thdetails = []
+        for i in range(len(anomalyscoresinNormal[0])):
+            pairthreshold, thmean, thstd = thresholding.selfTuning(factor=self.thresholdfactor, anomalyscoresInNormal=anomalyscoresinNormal[:, i],returnmean=True)
+            finalthresholds.append(pairthreshold)
+            thdetails.append((thmean, thstd))
+        return finalthresholds,thdetails
+
+    def remove_col(self,arr, ith):
+        itg = itemgetter(*filter((ith).__ne__, range(len(arr[0]))))
+        return list(map(list, map(itg, arr)))
+    def fit(self, profile):
+        self.profile = profile
+        dataforTraining=[]
+        self.models=[]
+        for seq in self.profile:
+            #[[3,4,5],[3,4,5],[3,4,5]]
+            dataforTraining.append(seq[-1])
+        df = pd.DataFrame(dataforTraining,columns=[i for i in range(len(dataforTraining[0]))])
+        for feature in range(len(dataforTraining[0])):
+            dftemp=df.copy()
+            label=dftemp[feature]
+            dftemp=dftemp.drop([feature],axis=1)
+            modeltemp=xgb.XGBRegressor()
+            modeltemp.fit(dftemp.values, label)
+            self.models.append(modeltemp)
+
+    # profile is [[[3,4,5],[3,4,5],[3,4,5]],
+    #       [[3,4,5],[3,4,5],[3,4,5]],
+    #       .
+    #       .
+    #       .
+    #       ]
+    # data is
+    #     [[3,4,5],[3,4,5],[3,4,5]]
+    def predict(self, data):
+        dataforTraining = data[-1]
+        distances=[]
+        for feature in range(len(dataforTraining)):
+            tempdata=[dataforTraining[i] for i in range(len(dataforTraining)) if i!=feature]
+            label=dataforTraining[feature]
+            pred=self.models[feature].predict([tempdata])
+            distances.append(abs(label-pred[0]))
+        return distances</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="PdmModule.Models.xgboostPerFeature.PairXgboost"><code class="flex name class">
+<span>class <span class="ident">PairXgboost</span></span>
+<span>(</span><span>thresholdtype, thresholdfactor, actualProfileSize=30, constThresholdfilter=-inf, alarmsThreshold=0)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PairXgboost():
+    def __init__(self,thresholdtype,thresholdfactor,actualProfileSize=30,constThresholdfilter=float(&#39;-inf&#39;),alarmsThreshold=0):
+        self.score_buffer=[]
+        self.thresholdfactor = thresholdfactor
+        self.thresholdtype = thresholdtype
+        self.reference=None
+        self.ProfileSize=actualProfileSize
+        self.constThresholdfilter=constThresholdfilter
+        self.initilized=False
+        self.pbcore=None
+        self.alarmsThreshold=alarmsThreshold
+    # Data point should contain (reference,actual data,source) and the function return PredictionPoint
+    def get_data(self,point : Datapoint):
+        anomaly_score = 0
+        if self.initilized:
+            pair_anomaly_scores = self.pbcore.predict(point.current)
+        else:
+            self.initilize(point)
+            pair_anomaly_scores = self.pbcore.predict(point.current)
+
+        alarm = False
+        pairthresholds = self.pbcore.threshold
+        thdeatails = self.pbcore.thdetails
+
+        score_description = &#34;&#34;
+        description_features = &#34;&lt;&#34;
+        ths = &#34;&#34;
+        counter = 0
+        producealarm = 0
+        for th, score in zip(pairthresholds, pair_anomaly_scores):
+            if score &gt; th and score &gt; self.constThresholdfilter:
+                producealarm += 1
+                description_features += f&#34;{counter}-&#34;
+            # if len(thdeatails)&gt;0:
+            #    description+=f&#34;{thdeatails[counter][0]},{thdeatails[counter][1]},{score},&#34;
+            # else:
+            score_description += f&#34;,{score}&#34;
+            ths += f&#34;,{th}&#34;
+            counter += 1
+        if description_features == &#34;&lt;&#34;:
+            description_features = &#34;&lt;&gt;&#34;
+        else:
+            description_features = description_features[:-1]
+            description_features += &#34;&gt;&#34;
+        alarm = producealarm &gt; self.alarmsThreshold
+        if alarm:
+            anomaly_score = 1
+        else:
+            anomaly_score = 0
+        description = score_description + ths
+        prediction = PredictionPoint(anomaly_score, 0.5, alarm, self.thresholdtype,
+                                     point.timestamp, point.source, notes=description,
+                                     ensemble_details=description_features)
+        return prediction
+
+    def initilize(self,point : Datapoint):
+        self.reference=point.reference
+        self.createpbCore()
+        self.initilized=True
+
+
+    def createpbCore(self):
+        if self.thresholdtype==&#34;selftunne&#34;:
+            profile=self.reference[:self.ProfileSize]
+            dataForNormal=self.reference[self.ProfileSize:]
+            self.pbcore = XgboostFeatureCore(profile, thresholdtype=self.thresholdtype,dataforThreshold=dataForNormal,thresholdfactor=self.thresholdfactor)
+        else:
+            profile=self.reference
+            self.pbcore = XgboostFeatureCore(profile, thresholdtype=self.thresholdtype,thresholdfactor=self.thresholdfactor)
+
+    def reset(self):
+        self.score_buffer = []
+        self.reference = None
+        self.initilized = False
+        self.pbcore = None</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="PdmModule.Models.xgboostPerFeature.PairXgboost.createpbCore"><code class="name flex">
+<span>def <span class="ident">createpbCore</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def createpbCore(self):
+    if self.thresholdtype==&#34;selftunne&#34;:
+        profile=self.reference[:self.ProfileSize]
+        dataForNormal=self.reference[self.ProfileSize:]
+        self.pbcore = XgboostFeatureCore(profile, thresholdtype=self.thresholdtype,dataforThreshold=dataForNormal,thresholdfactor=self.thresholdfactor)
+    else:
+        profile=self.reference
+        self.pbcore = XgboostFeatureCore(profile, thresholdtype=self.thresholdtype,thresholdfactor=self.thresholdfactor)</code></pre>
+</details>
+</dd>
+<dt id="PdmModule.Models.xgboostPerFeature.PairXgboost.get_data"><code class="name flex">
+<span>def <span class="ident">get_data</span></span>(<span>self, point: <a title="PdmModule.utils.structure.Datapoint" href="../utils/structure.html#PdmModule.utils.structure.Datapoint">Datapoint</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_data(self,point : Datapoint):
+    anomaly_score = 0
+    if self.initilized:
+        pair_anomaly_scores = self.pbcore.predict(point.current)
+    else:
+        self.initilize(point)
+        pair_anomaly_scores = self.pbcore.predict(point.current)
+
+    alarm = False
+    pairthresholds = self.pbcore.threshold
+    thdeatails = self.pbcore.thdetails
+
+    score_description = &#34;&#34;
+    description_features = &#34;&lt;&#34;
+    ths = &#34;&#34;
+    counter = 0
+    producealarm = 0
+    for th, score in zip(pairthresholds, pair_anomaly_scores):
+        if score &gt; th and score &gt; self.constThresholdfilter:
+            producealarm += 1
+            description_features += f&#34;{counter}-&#34;
+        # if len(thdeatails)&gt;0:
+        #    description+=f&#34;{thdeatails[counter][0]},{thdeatails[counter][1]},{score},&#34;
+        # else:
+        score_description += f&#34;,{score}&#34;
+        ths += f&#34;,{th}&#34;
+        counter += 1
+    if description_features == &#34;&lt;&#34;:
+        description_features = &#34;&lt;&gt;&#34;
+    else:
+        description_features = description_features[:-1]
+        description_features += &#34;&gt;&#34;
+    alarm = producealarm &gt; self.alarmsThreshold
+    if alarm:
+        anomaly_score = 1
+    else:
+        anomaly_score = 0
+    description = score_description + ths
+    prediction = PredictionPoint(anomaly_score, 0.5, alarm, self.thresholdtype,
+                                 point.timestamp, point.source, notes=description,
+                                 ensemble_details=description_features)
+    return prediction</code></pre>
+</details>
+</dd>
+<dt id="PdmModule.Models.xgboostPerFeature.PairXgboost.initilize"><code class="name flex">
+<span>def <span class="ident">initilize</span></span>(<span>self, point: <a title="PdmModule.utils.structure.Datapoint" href="../utils/structure.html#PdmModule.utils.structure.Datapoint">Datapoint</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def initilize(self,point : Datapoint):
+    self.reference=point.reference
+    self.createpbCore()
+    self.initilized=True</code></pre>
+</details>
+</dd>
+<dt id="PdmModule.Models.xgboostPerFeature.PairXgboost.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self):
+    self.score_buffer = []
+    self.reference = None
+    self.initilized = False
+    self.pbcore = None</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="PdmModule.Models.xgboostPerFeature.XgboostFeatureCore"><code class="flex name class">
+<span>class <span class="ident">XgboostFeatureCore</span></span>
+<span>(</span><span>profile, thresholdtype='selftunne', dataforThreshold=None, thresholdfactor=5)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class XgboostFeatureCore():
+
+    def __init__(self, profile, thresholdtype=&#34;selftunne&#34;, dataforThreshold=None, thresholdfactor=5):
+        self.profile = profile
+        self.thresholdfactor = thresholdfactor
+        self.thresholdtype = thresholdtype
+        self.dataforThreshold = dataforThreshold
+        self.models=[]
+        self.fit(profile)
+        self.thdetails=[]
+        if thresholdtype == &#34;const&#34;:
+            self.threshold = thresholdfactor
+        elif thresholdtype == &#34;selftunne&#34; and dataforThreshold is not None:
+            self.threshold,self.thdetails= self.calculateThresholdSelfTune(dataforThreshold)
+
+    def calculateThresholdSelfTune(self, dataforThreshold):
+        anomalyscoresinNormal = [self.predict(point) for point in dataforThreshold]
+
+        anomalyscoresinNormal = np.array(anomalyscoresinNormal)
+        finalthresholds = []
+        thdetails = []
+        for i in range(len(anomalyscoresinNormal[0])):
+            pairthreshold, thmean, thstd = thresholding.selfTuning(factor=self.thresholdfactor, anomalyscoresInNormal=anomalyscoresinNormal[:, i],returnmean=True)
+            finalthresholds.append(pairthreshold)
+            thdetails.append((thmean, thstd))
+        return finalthresholds,thdetails
+
+    def remove_col(self,arr, ith):
+        itg = itemgetter(*filter((ith).__ne__, range(len(arr[0]))))
+        return list(map(list, map(itg, arr)))
+    def fit(self, profile):
+        self.profile = profile
+        dataforTraining=[]
+        self.models=[]
+        for seq in self.profile:
+            #[[3,4,5],[3,4,5],[3,4,5]]
+            dataforTraining.append(seq[-1])
+        df = pd.DataFrame(dataforTraining,columns=[i for i in range(len(dataforTraining[0]))])
+        for feature in range(len(dataforTraining[0])):
+            dftemp=df.copy()
+            label=dftemp[feature]
+            dftemp=dftemp.drop([feature],axis=1)
+            modeltemp=xgb.XGBRegressor()
+            modeltemp.fit(dftemp.values, label)
+            self.models.append(modeltemp)
+
+    # profile is [[[3,4,5],[3,4,5],[3,4,5]],
+    #       [[3,4,5],[3,4,5],[3,4,5]],
+    #       .
+    #       .
+    #       .
+    #       ]
+    # data is
+    #     [[3,4,5],[3,4,5],[3,4,5]]
+    def predict(self, data):
+        dataforTraining = data[-1]
+        distances=[]
+        for feature in range(len(dataforTraining)):
+            tempdata=[dataforTraining[i] for i in range(len(dataforTraining)) if i!=feature]
+            label=dataforTraining[feature]
+            pred=self.models[feature].predict([tempdata])
+            distances.append(abs(label-pred[0]))
+        return distances</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="PdmModule.Models.xgboostPerFeature.XgboostFeatureCore.calculateThresholdSelfTune"><code class="name flex">
+<span>def <span class="ident">calculateThresholdSelfTune</span></span>(<span>self, dataforThreshold)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculateThresholdSelfTune(self, dataforThreshold):
+    anomalyscoresinNormal = [self.predict(point) for point in dataforThreshold]
+
+    anomalyscoresinNormal = np.array(anomalyscoresinNormal)
+    finalthresholds = []
+    thdetails = []
+    for i in range(len(anomalyscoresinNormal[0])):
+        pairthreshold, thmean, thstd = thresholding.selfTuning(factor=self.thresholdfactor, anomalyscoresInNormal=anomalyscoresinNormal[:, i],returnmean=True)
+        finalthresholds.append(pairthreshold)
+        thdetails.append((thmean, thstd))
+    return finalthresholds,thdetails</code></pre>
+</details>
+</dd>
+<dt id="PdmModule.Models.xgboostPerFeature.XgboostFeatureCore.fit"><code class="name flex">
+<span>def <span class="ident">fit</span></span>(<span>self, profile)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fit(self, profile):
+    self.profile = profile
+    dataforTraining=[]
+    self.models=[]
+    for seq in self.profile:
+        #[[3,4,5],[3,4,5],[3,4,5]]
+        dataforTraining.append(seq[-1])
+    df = pd.DataFrame(dataforTraining,columns=[i for i in range(len(dataforTraining[0]))])
+    for feature in range(len(dataforTraining[0])):
+        dftemp=df.copy()
+        label=dftemp[feature]
+        dftemp=dftemp.drop([feature],axis=1)
+        modeltemp=xgb.XGBRegressor()
+        modeltemp.fit(dftemp.values, label)
+        self.models.append(modeltemp)</code></pre>
+</details>
+</dd>
+<dt id="PdmModule.Models.xgboostPerFeature.XgboostFeatureCore.predict"><code class="name flex">
+<span>def <span class="ident">predict</span></span>(<span>self, data)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def predict(self, data):
+    dataforTraining = data[-1]
+    distances=[]
+    for feature in range(len(dataforTraining)):
+        tempdata=[dataforTraining[i] for i in range(len(dataforTraining)) if i!=feature]
+        label=dataforTraining[feature]
+        pred=self.models[feature].predict([tempdata])
+        distances.append(abs(label-pred[0]))
+    return distances</code></pre>
+</details>
+</dd>
+<dt id="PdmModule.Models.xgboostPerFeature.XgboostFeatureCore.remove_col"><code class="name flex">
+<span>def <span class="ident">remove_col</span></span>(<span>self, arr, ith)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_col(self,arr, ith):
+    itg = itemgetter(*filter((ith).__ne__, range(len(arr[0]))))
+    return list(map(list, map(itg, arr)))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="PdmModule.Models" href="index.html">PdmModule.Models</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="PdmModule.Models.xgboostPerFeature.PairXgboost" href="#PdmModule.Models.xgboostPerFeature.PairXgboost">PairXgboost</a></code></h4>
+<ul class="">
+<li><code><a title="PdmModule.Models.xgboostPerFeature.PairXgboost.createpbCore" href="#PdmModule.Models.xgboostPerFeature.PairXgboost.createpbCore">createpbCore</a></code></li>
+<li><code><a title="PdmModule.Models.xgboostPerFeature.PairXgboost.get_data" href="#PdmModule.Models.xgboostPerFeature.PairXgboost.get_data">get_data</a></code></li>
+<li><code><a title="PdmModule.Models.xgboostPerFeature.PairXgboost.initilize" href="#PdmModule.Models.xgboostPerFeature.PairXgboost.initilize">initilize</a></code></li>
+<li><code><a title="PdmModule.Models.xgboostPerFeature.PairXgboost.reset" href="#PdmModule.Models.xgboostPerFeature.PairXgboost.reset">reset</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="PdmModule.Models.xgboostPerFeature.XgboostFeatureCore" href="#PdmModule.Models.xgboostPerFeature.XgboostFeatureCore">XgboostFeatureCore</a></code></h4>
+<ul class="">
+<li><code><a title="PdmModule.Models.xgboostPerFeature.XgboostFeatureCore.calculateThresholdSelfTune" href="#PdmModule.Models.xgboostPerFeature.XgboostFeatureCore.calculateThresholdSelfTune">calculateThresholdSelfTune</a></code></li>
+<li><code><a title="PdmModule.Models.xgboostPerFeature.XgboostFeatureCore.fit" href="#PdmModule.Models.xgboostPerFeature.XgboostFeatureCore.fit">fit</a></code></li>
+<li><code><a title="PdmModule.Models.xgboostPerFeature.XgboostFeatureCore.predict" href="#PdmModule.Models.xgboostPerFeature.XgboostFeatureCore.predict">predict</a></code></li>
+<li><code><a title="PdmModule.Models.xgboostPerFeature.XgboostFeatureCore.remove_col" href="#PdmModule.Models.xgboostPerFeature.XgboostFeatureCore.remove_col">remove_col</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

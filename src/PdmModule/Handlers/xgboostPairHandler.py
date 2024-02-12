@@ -1,7 +1,7 @@
 import numpy as np
 from numpy import ndarray
-from utils.structure import PredictionPoint,Datapoint,Eventpoint
-from Models import pairdetection,xgboostPerFeature
+from PdmModule.utils.structure import PredictionPoint,Datapoint,Eventpoint
+from PdmModule.Models import xgboostPerFeature
 import pandas as pd
 
 def auto_str(cls):
