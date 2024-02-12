@@ -1,0 +1,1 @@
+Predictive Maintenance Module for applying a modified Xgboost and Pair detection Techniques in streaming data.
