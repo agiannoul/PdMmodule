@@ -37,11 +37,11 @@ class PairDectionHandler():
         '''
 
     def __init__(self,source,thresholdtype="inner",thresholdfactor=2,ProfileSize=30,ActualProfileSize=1,resetcodes=[],currentReference=None,constThresholdfilter=float('-inf'),sequencesize=1,alarmsThreshold=0,normz=False):
-        self.profilebuffer=[]
-        self.profilebuffertimestamps=[]
+
+
         self.sequencesize=sequencesize
         self.alarmsThreshold=alarmsThreshold
-        self.pointbuffer=[]
+
         self.currentReference=currentReference
         self.normz = normz
         self.constThresholdfilter=constThresholdfilter
@@ -51,6 +51,12 @@ class PairDectionHandler():
         self.thresholdfactor = thresholdfactor
         self.source=source
         self.ProfileSize=ProfileSize
+
+        self.pointbuffer = []
+        self.profilebuffer = []
+        self.profilebuffertimestamps = []
+
+
         if thresholdtype=="inner":
             self.ActualProfileSize = ProfileSize
         elif ActualProfileSize<1:
@@ -123,7 +129,7 @@ class PairDectionHandler():
 
     def get_event(self, event: Eventpoint):
         for ev in self.resetcodes:
-            if ev[0] == event.code and ev[1] == event.source:
+            if ev[0] == event.code:
                 self.reset()
                 return True, None, None
         return False, None, None

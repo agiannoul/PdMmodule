@@ -103,7 +103,7 @@ class XgboostPairHandler():
 
     def get_event(self, event: Eventpoint):
         for ev in self.resetcodes:
-            if ev[0] == event.code and ev[1] == event.source:
+            if ev[0] == event.code:
                 self.reset()
                 return True, None, None
         return False, None, None
