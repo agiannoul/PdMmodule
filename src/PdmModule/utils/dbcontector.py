@@ -5,7 +5,7 @@ import codecs
 import pandas
 
 class SQLiteHandler:
-    def __init__(self, db_name="NavarchosModels.db"):
+    def __init__(self, db_name="DataFolder/NavarchosModels.db"):
         self.conn = sqlite3.connect(db_name)#,isolation_level = 'DEFERRED')
         self.cursor = self.conn.cursor()
         # self.cursor.execute('''PRAGMA synchronous = OFF''')
